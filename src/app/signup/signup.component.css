@@ -1,0 +1,6 @@
+.auth-wrapper {
+  background: linear-gradient(135deg, #fffaf0 0%, #f8f9fa 100%);
+  min-height: calc(100vh - 76px);
+  display: flex;
+  align-items: center;
+}

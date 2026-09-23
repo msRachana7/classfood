@@ -1,0 +1,101 @@
+<section class="auth-wrapper">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow-lg border-0 rounded-4 p-4 p-md-5">
+          <h2 class="text-center fw-bold mb-4">Create Account</h2>
+
+          <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">First Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="firstName"
+                  placeholder="First name"
+                  [ngClass]="{ 'is-invalid': signupForm.get('firstName')?.touched && signupForm.get('firstName')?.invalid }"
+                />
+                <div class="invalid-feedback" *ngIf="signupForm.get('firstName')?.touched && signupForm.get('firstName')?.invalid">
+                  <span *ngIf="signupForm.get('firstName')?.errors?.['required']">First name is required.</span>
+                  <span *ngIf="signupForm.get('firstName')?.errors?.['minlength']">Minimum 2 characters required.</span>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="lastName"
+                  placeholder="Last name"
+                  [ngClass]="{ 'is-invalid': signupForm.get('lastName')?.touched && signupForm.get('lastName')?.invalid }"
+                />
+                <div class="invalid-feedback" *ngIf="signupForm.get('lastName')?.touched && signupForm.get('lastName')?.invalid">
+                  <span *ngIf="signupForm.get('lastName')?.errors?.['required']">Last name is required.</span>
+                  <span *ngIf="signupForm.get('lastName')?.errors?.['minlength']">Minimum 2 characters required.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <label class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+                placeholder="Enter your email"
+                [ngClass]="{ 'is-invalid': signupForm.get('email')?.touched && signupForm.get('email')?.invalid }"
+              />
+              <div class="invalid-feedback" *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid">
+                <span *ngIf="signupForm.get('email')?.errors?.['required']">Email is required.</span>
+                <span *ngIf="signupForm.get('email')?.errors?.['email']">Please enter a valid email.</span>
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <label class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+                placeholder="Create password"
+                [ngClass]="{ 'is-invalid': signupForm.get('password')?.touched && signupForm.get('password')?.invalid }"
+              />
+              <div class="invalid-feedback" *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid">
+                <span *ngIf="signupForm.get('password')?.errors?.['required']">Password is required.</span>
+                <span *ngIf="signupForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters.</span>
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <label class="form-label">Confirm Password</label>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="confirmPassword"
+                placeholder="Confirm password"
+                [ngClass]="{ 'is-invalid': (signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.invalid) || signupForm.errors?.['passwordMismatch'] }"
+              />
+              <div class="invalid-feedback" *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.invalid">
+                <span *ngIf="signupForm.get('confirmPassword')?.errors?.['required']">Please confirm your password.</span>
+              </div>
+              <div class="invalid-feedback d-block" *ngIf="signupForm.errors?.['passwordMismatch'] && signupForm.get('confirmPassword')?.touched">
+                Passwords do not match.
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-warning text-dark fw-bold w-100 py-2 mt-4" [disabled]="signupForm.invalid && signupForm.touched">
+              Sign Up
+            </button>
+
+            <p class="text-center mt-3 mb-0 text-secondary">
+              Already have an account?
+              <a routerLink="/login" class="text-danger text-decoration-none fw-semibold">Login</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
