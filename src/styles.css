@@ -1,1 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --brand-red: #e53935;
+  --brand-red-dark: #c62828;
+  --brand-orange: #ffb703;
+  --brand-cream: #fff8f3;
+  --brand-text: #1c1c1c;
+  --brand-muted: #5f6470;
+  --brand-shadow: 0 18px 40px rgba(27, 21, 21, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #fffaf7 0%, #fff 35%, #fff4ef 100%);
+  color: var(--brand-text);
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.btn {
+  border-radius: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.card {
+  border-radius: 22px;
+}
+
+.form-control,
+.form-select {
+  min-height: 48px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: none;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: rgba(229, 57, 53, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(229, 57, 53, 0.12);
+}
+
+.container {
+  max-width: 1200px;
+}
+

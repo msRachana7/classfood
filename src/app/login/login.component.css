@@ -1,6 +1,43 @@
 .auth-wrapper {
-  background: linear-gradient(135deg, #fff5f5 0%, #f8f9fa 100%);
+  background: linear-gradient(135deg, rgba(255, 244, 239, 0.95), rgba(255, 255, 255, 0.9));
   min-height: calc(100vh - 76px);
   display: flex;
   align-items: center;
+  padding: 2rem 0;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(28, 28, 28, 0.05);
+  box-shadow: 0 24px 60px rgba(23, 23, 23, 0.12) !important;
+}
+
+.card h2 {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  letter-spacing: -0.04em;
+}
+
+.form-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border: none;
+  box-shadow: 0 12px 20px rgba(220, 38, 38, 0.22);
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #ffcd39, #f4b400);
+  border: none;
+}
+
+.text-danger {
+  color: #d32f2f !important;
+}
+
+.alert {
+  border-radius: 14px;
+  font-weight: 500;
 }

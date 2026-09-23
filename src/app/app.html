@@ -1,46 +1,48 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
-  <div class="container">
-    <a class="navbar-brand fw-bold" routerLink="/home">
-      <span class="badge bg-warning text-dark me-2">Z</span>
-      Zomato
-    </a>
+<div class="app-shell">
+  <nav class="navbar navbar-expand-lg navbar-dark topbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" routerLink="/home">
+        <span class="brand-mark bg-warning text-dark">Z</span>
+        <span>Zomato</span>
+      </a>
 
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#mainNav"
-      aria-controls="mainNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/services" routerLinkActive="active">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact Us</a>
-        </li>
-      </ul>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-2">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/services" routerLinkActive="active">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact Us</a>
+          </li>
+        </ul>
 
-      <div class="d-flex align-items-center gap-2">
-        <a class="btn btn-outline-light" routerLink="/login">Login</a>
-        <a class="btn btn-warning text-dark fw-bold" routerLink="/signup">Sign Up</a>
+        <div class="nav-actions d-flex align-items-center gap-2">
+          <a class="btn btn-outline-light" routerLink="/login">Login</a>
+          <a class="btn btn-warning text-dark fw-bold" routerLink="/signup">Sign Up</a>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<main>
-  <router-outlet></router-outlet>
-</main>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

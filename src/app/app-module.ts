@@ -9,6 +9,7 @@ import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SignupComponent } from './signup/signup.component';
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
+    AuthGuard
   ],
   bootstrap: [App]
 })

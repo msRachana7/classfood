@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   standalone: false,
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrl: './login.component.css'
 })
 export class LoginComponent {
   loginForm: FormGroup;
@@ -15,41 +15,38 @@ export class LoginComponent {
   constructor(private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
-  onSubmit() {
-    this.loginError = '';
-
+  onSubmit(): void {
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
-      this.loginError = 'Please enter a valid email and password.';
       return;
     }
 
-    const email = this.loginForm.value.email.trim();
-    const password = this.loginForm.value.password;
+    const formValue = this.loginForm.value;
+    const storedUser = JSON.parse(localStorage.getItem('signupUser') || '{}');
+    const validEmail = 'admin@test.com';
+    const validPassword = 'admin123';
 
-    const defaultUser = { email: 'admin@test.com', password: 'admin123' };
-    const savedUser = JSON.parse(localStorage.getItem('signupUser') || 'null');
-    const validUser = savedUser
-      ? savedUser.email === email && savedUser.password === password
-      : defaultUser.email === email && defaultUser.password === password;
+    const isAdminMatch = formValue.email === validEmail && formValue.password === validPassword;
+    const isSignedUpMatch =
+      storedUser.email &&
+      formValue.email === storedUser.email &&
+      formValue.password === storedUser.password;
 
-    if (validUser) {
+    if (isAdminMatch || isSignedUpMatch) {
       localStorage.setItem('isLoggedIn', 'true');
       this.router.navigateByUrl('/home');
       return;
     }
 
     this.loginError = 'Invalid username or password. Please sign up or try again.';
-    this.loginForm.reset();
   }
 
-  tryAgain() {
+  tryAgain(): void {
     this.loginError = '';
     this.loginForm.reset();
-    this.loginForm.markAsPristine();
   }
 }

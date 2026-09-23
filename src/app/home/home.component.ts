@@ -1,21 +1,21 @@
 import { AfterViewInit, Component } from '@angular/core';
 
+declare const bootstrap: any;
+
 @Component({
   selector: 'app-home',
   standalone: false,
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrl: './home.component.css'
 })
 export class HomeComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     const carouselElement = document.getElementById('foodCarousel');
-    const bootstrap = (window as any).bootstrap;
-
-    if (carouselElement && bootstrap?.Carousel) {
+    if (carouselElement) {
       new bootstrap.Carousel(carouselElement, {
         interval: 2500,
         ride: 'carousel',
-        pause: 'hover',
+        pause: 'hover'
       });
     }
   }
